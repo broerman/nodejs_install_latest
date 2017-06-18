@@ -1,6 +1,10 @@
 # Nodejs bash install
 
 
+install  nodejs directls  from https://nodejs.org/dist/ 
+
+
+
 ### editable settings
 
     NODE_VERSION_REQ="v6"
