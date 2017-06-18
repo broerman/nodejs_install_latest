@@ -1,7 +1,8 @@
 # Nodejs bash install
 
 
-install  nodejs directls  from https://nodejs.org/dist/ 
+install  nodejs directly  from https://nodejs.org/dist/ under /opt
+and link tu /usr/bin.
 
 
 
