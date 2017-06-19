@@ -1,52 +1,25 @@
 # Nodejs bash install
 
 
-install  nodejs directly  from https://nodejs.org/dist/ under /opt
-and link tu /usr/bin.
+install  nodejs v6 lastest  directly  from https://nodejs.org/dist/ under /opt
+and link to /usr/bin.
 
 
 
 ### editable settings
 
-    NODE_VERSION_REQ="v6"
-    NODE_VERSION_ARCH="linux-x64"
-    NODE_PACKAGE_FORMAT="tar.gz"
+NODE_MAJOR_VERSION default is v6 , change it by exporting variables
+
+    export NODE_MAJOR_VERSION="v8"
 
 
-### find versions
+if you are not root user install in your $HOME environment
 
-    NODE_VERSIONS=$( curl -s https://nodejs.org/dist/ | sed -n "s/<a href=\".*\">\(.*\)\/<\/a>.*/\1/p")
+NODE_DIR default applikationdirectory is /opt
 
-### find latest
+    export NODE_DIR=$HOME
 
-    NODE_VERSION_REQ_LATEST=$(  echo "$NODE_VERSIONS" | sort -V | grep $NODE_VERSION_REQ | tail -n1 )
+NODE_BIN default Binarypath is /usr/bin 
 
-
-### determine package file
-
-    NODEPACKAGEFILE=$( curl -s https://nodejs.org/dist/$NODE_VERSION_REQ_LATEST/ | sed -n "s/<a href=\".*\">\(.*$NODE_VERSION_ARCH.*$NODE_PACKAGE_FORMAT\)<\/a>.*/\1/p" )
-    echo $NODEPACKAGEFILE
-
-
-### download to /opt
-
-    cd /opt
-    wget https://nodejs.org/dist/$NODE_VERSION_REQ_LATEST/$NODEPACKAGEFILE
-
-### unpack 
-
-    tar -xvzf $NODEPACKAGEFILE
-
-### moveit
-
-    mv node-$NODE_VERSION_REQ_LATEST-$NODE_VERSION_ARCH nodejs
-
-### remove packagefile
-
-    rm $NODEPACKAGEFILE
-
-### link to use it
-
-    ln -s /opt/nodejs/bin/node /usr/bin/node
-    ln -s /opt/nodejs/bin/npm /usr/bin/npm
+    export NODE_BIN=$HOME/bin
 
