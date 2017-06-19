@@ -2,7 +2,8 @@
 
 
 install  nodejs v6 lastest  directly  from https://nodejs.org/dist/ under /opt
-and link to /usr/bin.
+and link to /usr/bin with automatic architecture recognition.
+
 
 
 
