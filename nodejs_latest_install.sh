@@ -1,14 +1,20 @@
 #!/bin/bash
+# Bernd Broermann  bernd@broermann.com
+
+
 # Nodejs bash install
 
 
-# install  nodejs directly  from https://nodejs.org/dist/ under /opt
+# this installs  nodejs directly  from https://nodejs.org/dist/ under /opt
 # and link to /usr/bin.
 
 
+# URL will be expanded in this script
+    URL="https://nodejs.org/dist/"
 
 ### editable settings
 
+    # Version 6 default
     NODE_MAJOR_VERSION=${NODE_MAJOR_VERSION:-v6}
 
     # architectures seen linux-arm64 linux-armv6l linux-armv7l linux-ppc64 linux-ppc64le linux-s390x linux-x64 linux-x86
@@ -33,7 +39,6 @@
     fi    
 
 ### find versions
-    URL="https://nodejs.org/dist/"
     NODE_VERSIONS=$( ( curl -s $URL || wget -q $URL -O - ) | sed -n "s/<a href=\".*\">\(.*\)\/<\/a>.*/\1/p")
 
 ### find latest
